@@ -1,0 +1,8 @@
+{
+    "imports": {
+        "std/": "https://deno.land/std/",
+        "third/": "https://deno.land/x/",
+        "lodash/": "https://unpkg.com/lodash-es/",
+        "baseutil/": "./"
+    }
+}
