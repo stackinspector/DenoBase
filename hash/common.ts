@@ -9,7 +9,7 @@ type Sha2Hashers = typeof Sha256 | typeof Sha512
 type Sha3Hashers = typeof Sha3_256 | typeof Sha3_384 | typeof Sha3_512
 
 /**
- * `std/hash/sha256` and `std/hash/sha512` are adapted from the emn178 implementation,
+ * `std/hash/sha256` and `std/hash/sha512` are adapted from emn178's implementation,
  * which returns `number[]` with the method `digest()`.
  * We should use the method `arrayBuffer()` to get the `ArrayBuffer`.
  */
