@@ -14,3 +14,4 @@ const intersect = <T>(foo: Set<T>, bar: Set<T>): Set<T> => {
  * @todo Improve performance by referring to the lodash implementation rather than `reduce` directly.
  */
 const intersectMul = <T>(...sets: Set<T>[]): Set<T> => sets.reduce(intersect)
+
