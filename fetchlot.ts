@@ -1,11 +1,13 @@
 import { range } from 'baseutil/range.ts'
-export type { Ports, Output }
+export type { Dict, Ports, Output }
 export { worker }
+
+type Dict = Record<string, unknown>
 
 interface Port<Input> {
     url: (input: Input) => string
-    valid: ((resp: unknown, input: Input) => boolean)[]
-    proc: (resp: unknown, input: Input) => unknown
+    valid: ((resp: Dict, input: Input) => boolean)[]
+    proc: (data: unknown, input: Input) => unknown
 }
 
 type Ports<Input> = Map<string, Port<Input>>
@@ -22,7 +24,7 @@ const worker = async <Input>(input: Input, ports: Ports<Input>, output: Output):
                 const resp = await (await fetch(port.url(input))).text()
                 output('meta', { type, input, content: resp })
 
-                const parsed = JSON.parse(resp)
+                const parsed = JSON.parse(resp) as Dict
 
                 try {
                     for (const vaild of range(port.valid.length)) {
@@ -34,7 +36,7 @@ const worker = async <Input>(input: Input, ports: Ports<Input>, output: Output):
                     continue
                 }
 
-                output('data', { type, input, content: port.proc(parsed, input) })
+                output('data', { type, input, content: port.proc(parsed.data, input) })
                 break
 
             } catch (e) {
