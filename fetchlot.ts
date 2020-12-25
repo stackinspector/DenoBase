@@ -7,7 +7,7 @@ type Dict = Record<string, unknown>
 interface Port<Input> {
     url: (input: Input) => string
     valid: ((resp: Dict, input: Input) => boolean)[]
-    proc: (data: unknown, input: Input) => unknown
+    proc: (resp: Dict, input: Input) => unknown
 }
 
 type Ports<Input> = Map<string, Port<Input>>
@@ -36,7 +36,7 @@ const worker = async <Input>(input: Input, ports: Ports<Input>, output: Output):
                     continue
                 }
 
-                output('data', { type, input, content: port.proc(parsed.data, input) })
+                output('data', { type, input, content: port.proc(parsed, input) })
                 break
 
             } catch (e) {
