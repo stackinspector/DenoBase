@@ -4,8 +4,8 @@ export { worker }
 
 interface Port<Input> {
     url: (input: Input) => string
-    valid: ((resp: any, input: Input) => boolean)[]
-    proc: (resp: any, input: Input) => unknown
+    valid: ((resp: unknown, input: Input) => boolean)[]
+    proc: (resp: unknown, input: Input) => unknown
 }
 
 type Ports<Input> = Map<string, Port<Input>>
