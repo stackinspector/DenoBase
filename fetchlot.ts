@@ -31,7 +31,7 @@ const worker = async <Input>(input: Input, ports: Ports<Input>, output: Output):
                         if (!(port.valid[vaild](parsed, input))) throw vaild
                     }
                 } catch (e) {
-                    if (typeof e === 'number') output('error', { type, input, retry: retry, content: e })
+                    if (typeof e === 'number') output('error', { type, input, retry, content: e })
                     else throw e
                     continue
                 }
@@ -40,7 +40,7 @@ const worker = async <Input>(input: Input, ports: Ports<Input>, output: Output):
                 break
 
             } catch (e) {
-                output('crash', { type, input, retry: retry, content: (e instanceof Error ? e.stack : e) })
+                output('crash', { type, input, retry, content: (e instanceof Error ? e.stack : e) })
                 continue
             }
         }
