@@ -1,5 +1,5 @@
 import { range } from 'baseutil/range.ts'
-export type { Ports }
+export type { Ports, Output }
 export { worker }
 
 interface Port<Input> {
