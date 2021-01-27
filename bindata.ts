@@ -1,7 +1,7 @@
 import { range } from 'baseutil/range.ts'
 import { sumof } from 'baseutil/sum.ts'
 export type { bit }
-export { concat, encode, decode }
+export { concat, encode, decode, encodeUint, decodeUint }
 
 /**
  * bindata currently supports 8-bit, 16-bit, and 32-bit integers. 
@@ -63,4 +63,8 @@ const decode = (stream: ArrayBuffer, schema: bit[]): number[] => {
     }
     return data
 }
+
+const encodeUint = (data: number, bit: bit): ArrayBuffer => encode([data], [bit])
+
+const decodeUint = (stream: ArrayBuffer, bit: bit): number => decode(stream, [bit])[0]
 
