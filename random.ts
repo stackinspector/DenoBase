@@ -1,4 +1,4 @@
-export { randInt, randEl }
+export { randInt, randEl, randOrgIntSet, randOrgEls }
 
 const randInt = (n: number): number => Math.floor(Math.random() * n)
 
