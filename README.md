@@ -1,5 +1,3 @@
-# baseutil
+# Berylsoft Deno Base Utilities
 
-铍软基础工具库，基于Deno-TypeScript技术栈
-
-所有铍软Deno项目中，import map路径`/baseutil`都应指向本仓库。
+In all Deno projects of Berylsoft, the import map path `/baseutil` is expected to point to this repository.
