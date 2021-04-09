@@ -1,4 +1,4 @@
-import { encode as encodeText } from 'std/encoding/utf8.ts'
+import { encodeText } from 'baseutil/textcodec.ts'
 export { writeln, writelnSync }
 
 /** asynchronously write the given string as a line to the target text file */
