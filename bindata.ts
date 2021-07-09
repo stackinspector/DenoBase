@@ -1,5 +1,5 @@
-import { range } from 'baseutil/range.ts'
-import { sumof } from 'baseutil/sum.ts'
+import { range } from './range.ts'
+import { sumof } from './sum.ts'
 export type { bit }
 export { concat, encode, decode, encodeUint, decodeUint }
 

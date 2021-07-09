@@ -1,4 +1,4 @@
-import { range } from 'baseutil/range.ts'
+import { range } from './range.ts'
 export type { Dict, Ports, Output }
 export { worker }
 

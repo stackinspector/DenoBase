@@ -1,4 +1,4 @@
-import { encodeText } from 'baseutil/textcodec.ts'
+import { encodeText } from './textcodec.ts'
 export { writeln, writelnSync }
 
 /** asynchronously write the given string as a line to the target text file */
